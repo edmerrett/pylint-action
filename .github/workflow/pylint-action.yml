@@ -1,0 +1,20 @@
+name: pylint
+on: push
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  pylint:
+    container:
+      image: edmerrett/pylint-action:latest
+      credentials:
+        username: edmerrett
+        password: ${{ secrets.DOCKER_HUB_TOKEN}}
+    name: Pylint Linting Checker
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          pylint --version
+          git ls-files
+        name: Build and Test
