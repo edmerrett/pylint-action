@@ -6,6 +6,7 @@ env:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     container:
       image: edmerrett/pylint-action:latest
       credentials:
