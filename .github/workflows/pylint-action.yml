@@ -5,7 +5,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  pylint:
+  build:
     container:
       image: edmerrett/pylint-action:latest
       credentials:
