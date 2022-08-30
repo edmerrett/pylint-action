@@ -17,5 +17,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           pylint --version
-          ls -las
+          pylint *.py --rcfile .pylintrc --output-format colorized
         name: Build and Test
