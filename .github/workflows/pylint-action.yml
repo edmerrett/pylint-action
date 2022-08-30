@@ -1,16 +1,13 @@
 name: pylint
 on: push
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
       image: edmerrett/pylint-action:latest
       credentials:
-        username: edmerrett
+        username: ${{ secrets.DOCKER_HUB_ID}}
         password: ${{ secrets.DOCKER_HUB_TOKEN}}
     name: Pylint Linting Checker
     steps:
@@ -18,4 +15,4 @@ jobs:
       - run: |
           pylint --version
           pylint *.py --rcfile .pylintrc --output-format colorized || pylint-exit $?
-        name: Build and Test
+        name: Run Pylint
