@@ -17,5 +17,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           pylint --version
-          pwd
+          ls -las
         name: Build and Test
