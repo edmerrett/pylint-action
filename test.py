@@ -1,3 +1,4 @@
+import requests
 TEST_ENV = "hello"
 
 def test():
