@@ -9,6 +9,7 @@ WORKDIR /build
 COPY .pylintrc /build/.pylintrc
 
 RUN apk add py3-pip && apk add git
+RUN apk upgrade --available && sync
 RUN pip3 install -U setuptools
 RUN pip3 install -U pylint
 RUN pip3 install -U pylint-exit
