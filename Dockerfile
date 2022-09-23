@@ -1,4 +1,4 @@
-FROM python:3.11-rc-alpine
+FROM python:3.11-rc-alpine3.16
 
 LABEL "com.github.actions.name"="GitHub Action for pylint"
 LABEL "com.github.actions.description"="Run pylint commands"
@@ -9,6 +9,7 @@ WORKDIR /build
 COPY .pylintrc /build/.pylintrc
 
 RUN apk add py3-pip && apk add git
+RUN apk upgrade --available && sync
 RUN pip3 install -U setuptools
 RUN pip3 install -U pylint
 RUN pip3 install -U pylint-exit
