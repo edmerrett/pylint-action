@@ -9,8 +9,8 @@ WORKDIR /build
 COPY .pylintrc /build/.pylintrc
 
 RUN apk update
+RUN apk add expat=2.4.9-r0
 RUN apk add py3-pip && apk add git
-RUN apk add --upgrade expat
 RUN apk upgrade --available && sync
 RUN pip3 install -U setuptools
 RUN pip3 install -U pylint
