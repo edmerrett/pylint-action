@@ -8,6 +8,7 @@ LABEL "com.github.actions.color"="green"
 WORKDIR /build
 COPY .pylintrc /build/.pylintrc
 
+RUN apk update
 RUN apk add py3-pip && apk add git
 RUN apk add --upgrade expat
 RUN apk upgrade --available && sync
